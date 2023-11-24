@@ -15,7 +15,14 @@
             <h1 class="header">Thank you for using Pixelesque!</h1>
         </div>
         
-        <div class="content flex justify-center">
+        <div class="content text-center">
+            {% with messages = get_flashed_messages() %}  
+                {% if messages %}  
+                    {% for message in messages %}  
+                        <p><span class="error">&#10005;</span> {{ message }}</p><br> 
+                    {% endfor %}  
+                {% endif %}  
+            {% endwith %}  
             <form  action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
                 <p>Please select an image to pixelize</p><br>
                 <input type="file" class="image" name="image">
