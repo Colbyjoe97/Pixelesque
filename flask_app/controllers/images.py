@@ -1,7 +1,7 @@
 import os
 from flask import redirect, render_template, request, flash, url_for
 from flask_app import app
-from flask_app.models import image
+from flask_app.models.image import Image
 from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
@@ -11,7 +11,7 @@ def allowed_file(imageName):
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", all_images = Image.get_all())
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
@@ -29,8 +29,10 @@ def upload_image():
         print('------SUCCESS------')
         imageName = secure_filename(image.filename)
         image.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(imageName)))
+        data = {
+            'image': image.filename
+        }
+        Image.save(data)
     return redirect('/')
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    
