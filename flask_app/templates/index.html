@@ -29,14 +29,18 @@
                 <input type="submit" value="Pixelize" class="sbutton">
             </form>
         </div>
-        <div class="images flex">
 
+
+        <div class="images flex">
             {% for image in all_images %}
-            <p>{{image.image}}</p>
-            <img class="images" src="../static/images/{{ image.image }}" alt="images/{{ image.image }}">
-            
+            <div class="image">
+                <p>{{image.image}}</p>
+                <img class="oneImage" src="../static/images/{{image.id}}-{{ image.image }}" alt="images/{{image.id}}-{{ image.image }}">
+            </div>
             {% endfor %}
         </div>
+
+
     </div>
 </body>
 </html>
