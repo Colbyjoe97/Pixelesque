@@ -43,7 +43,7 @@ body {
 
 .header {
     text-align: center;
-    margin-top: 10px;
+    padding-top: 10px;
     font-family: 'Bubble Letters', sans-serif;
     font-size: 55px;
 }
@@ -74,7 +74,23 @@ body {
 }
 
 .images {
-    width: 250px;
+    border: 5px solid black;
+    min-width: 250px;
+    max-width: 740px;
     border-radius: 25px;
-    margin-top: 50px;
+    margin:50px auto;
+    flex-wrap: wrap;
+}
+
+.image {
+    /* border: 2px solid black; */
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.oneImage {
+    flex: 3;
+    max-height: 250px;
+    min-height: 200px;
+    max-width: 100%;
 }
