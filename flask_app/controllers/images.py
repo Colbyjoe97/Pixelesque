@@ -27,12 +27,12 @@ def upload_image():
 
     if image and allowed_file(image.filename):
         print('------SUCCESS------')
-        imageName = secure_filename(image.filename)
-        image.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(imageName)))
         data = {
             'image': image.filename
         }
-        Image.save(data)
+        dbImg = Image.save(data)
+        imageName = str(dbImg) + '-' + secure_filename(image.filename)
+        image.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(imageName)))
     return redirect('/')
 
     
