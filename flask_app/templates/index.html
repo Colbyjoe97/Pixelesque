@@ -30,11 +30,11 @@
             </form>
         </div>
 
-            <H1>THIS IS A TEST FOR DEPLOYMENT</H1>
 
         <div class="images flex">
             {% for image in all_images %}
             <div class="image">
+                <b>{{ image.id }}</b>
                 <p>{{image.image}}</p>
                 <img class="oneImage" src="../static/images/{{image.id}}-{{ image.image }}" alt="images/{{image.id}}-{{ image.image }}">
             </div>
