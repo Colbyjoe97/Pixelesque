@@ -34,8 +34,9 @@
         <div class="images flex">
             {% for image in all_images %}
             <div class="image">
-                <p>{{image.image}}</p>
-                <img class="oneImage" src="../static/images/{{image.id}}-{{ image.image }}" alt="images/{{image.id}}-{{ image.image }}">
+                <p>{{ image.image }}</p>
+                <img class="oneImage" src="../static/images/{{ image.id }}-{{ image.image }}" alt="images/{{ image.id }}-{{ image.image }}">
+                <a href="/delete/{{ image.id }}/{{ image.image }}"><button>Delete</button></a>
             </div>
             {% endfor %}
         </div>
