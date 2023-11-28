@@ -4,7 +4,7 @@ from flask_app import app
 from flask_app.models.image import Image
 from werkzeug.utils import secure_filename
 
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def allowed_file(imageName):
     return '.' in imageName and imageName.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -35,4 +35,9 @@ def upload_image():
         image.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(imageName)))
     return redirect('/')
 
-    
+
+@app.route('/delete/<int:id>/<string:imgName>')
+def delete(id, imgName):
+    os.remove(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(str(id)+'-'+imgName)))
+    Image.delete({'id': id})
+    return redirect('/')

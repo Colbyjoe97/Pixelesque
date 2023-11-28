@@ -23,3 +23,8 @@ class Image:
         for i in results:
             images.append(cls(i))
         return images
+    
+    @classmethod
+    def delete(cls, data):
+        query = 'DELETE FROM images WHERE id = %(id)s'
+        return connectToMySQL(cls.db).query_db(query, data)
