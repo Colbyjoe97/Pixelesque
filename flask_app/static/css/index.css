@@ -38,8 +38,7 @@ body, html {
 
 .container {
     min-height: 100vh;
-    max-height: 100%;
-    padding: 10px;
+    /* padding: 3px; */
 }
 
 .header {
@@ -52,13 +51,17 @@ body, html {
 .upload-form {
     max-width: 400px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 20px;
     border: 5px solid black;
     border-radius: 25px;
     background-color: rgb(233, 182, 88);
     font-size: larger;
     font-weight: bolder;
+}
+
+.imgInput {
+    width: 100%;
 }
 
 .sbutton {
@@ -71,20 +74,24 @@ body, html {
 }
 
 .images {
-    border: 5px solid black;
-    min-width: 250px;
-    max-width: 740px;
-    border-radius: 25px;
+    /* min-width: 100vw;
+    max-width: 740px; */
     margin:50px auto;
     flex-wrap: wrap;
 }
 
 .image {
-    /* border: 2px solid black; */
+    background-color: pink;
     width: 200px;
     padding: 10px;
+    border: 2px solid black;
+    border-radius: 25px;
     margin: 0 auto;
     text-align: center;
+}
+
+.image > img {
+    border-radius: 10px;
 }
 
 .image > p {
@@ -95,10 +102,9 @@ body, html {
 }
 
 .oneImage {
-    flex: 3;
-    max-height: 250px;
+    /* max-height: 250px;*/
     min-height: 200px;
-    max-width: 100%;
+    max-width: 100%; 
 }
 
 
@@ -109,6 +115,22 @@ body, html {
 
 @media(max-width: 310px){
     .header {
-        font-size: 45px;
+        font-size: 35px;
+    }
+    .sbutton {
+        margin-top: 20px;
+    }
+    .container {
+        padding: 1px;
+    }
+    .upload-form {
+        border: 4px solid black;
+    }
+    .images {
+        width: calc(100vw - 50px);
+    }
+    .image {
+        width: 100vw;
+        padding: 5px;
     }
 }
