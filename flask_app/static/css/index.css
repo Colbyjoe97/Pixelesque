@@ -113,9 +113,12 @@ body, html {
 
 /* MEDIA */
 
-@media(max-width: 310px){
+@media(max-width: 450px){
+    .header-content {
+        width: 100vw;
+    }
     .header {
-        font-size: 35px;
+        font-size: 140%;
     }
     .sbutton {
         margin-top: 20px;
