@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        
+
         <div class="header-content">
             <h1 class="header">Thank you for using Pixelesque!</h1>
         </div>
@@ -26,7 +26,7 @@
             {% endwith %}  
             <form  action="/upload" method="POST" enctype="multipart/form-data" >
                 <p>Please select an image to pixelize</p><br>
-                <input type="file" class="image" name="image">
+                <input type="file" class="imgInput" name="image">
                 <input type="submit" value="Pixelize" class="sbutton">
             </form>
         </div>
@@ -35,7 +35,6 @@
         <div class="images flex">
             {% for image in all_images %}
             <div class="image">
-                <h2>{{ image.id }}</h2>
                 <p>{{ image.image }}</p>
                 <img class="oneImage" src="../static/images/{{ image.id }}-{{ image.image }}" alt="images/{{ image.id }}-{{ image.image }}">
                 <a href="/delete/{{ image.id }}/{{ image.image }}"><button>Delete</button></a>
