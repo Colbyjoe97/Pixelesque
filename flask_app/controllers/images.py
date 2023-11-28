@@ -24,6 +24,10 @@ def upload_image():
     if image.filename == "":
         flash("No image selected")
         return redirect('/')
+    
+    if not allowed_file(image.filename):
+        flash("File type not accepted!")
+        return redirect('/')
 
     if image and allowed_file(image.filename):
         print('------SUCCESS------')
