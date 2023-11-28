@@ -28,3 +28,8 @@ class Image:
     def delete(cls, data):
         query = 'DELETE FROM images WHERE id = %(id)s'
         return connectToMySQL(cls.db).query_db(query, data)
+
+    @classmethod
+    def deleteAll(cls):
+        query = 'DELETE FROM images WHERE id > 0'
+        return connectToMySQL(cls.db).query_db(query)

@@ -45,3 +45,8 @@ def delete(id, imgName):
     os.remove(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(str(id)+'-'+imgName)))
     Image.delete({'id': id})
     return redirect('/')
+
+@app.route('/delete/all')
+def deleteAll():
+    Image.deleteAll()
+    return redirect('/')
